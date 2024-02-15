@@ -167,9 +167,16 @@ main {
   width: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
+  transition: all 0.5s ease;
+}
+
+.bground.closing {
+  opacity: 0;
+  transform: translateY(-50px);
 }
 
 .content {
+  z-index: 2;
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -253,6 +260,7 @@ input[data-error]::after {
   top: -1px;
   transition: 0.3s;
 }
+
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
@@ -332,6 +340,55 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+/* errors and thank you*/
+.thank-you-message {
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #232323;
+  border-radius: 10px;
+  width: 60%;
+  height: 85%;
+  max-width: 500px;
+  z-index: 1;
+  opacity: 0;
+}
+.thank-you-message.visible {
+  opacity: 1;
+}
+.thank-you-message h1 {
+  color: white;
+  font-size: 1.5rem;
+    font-weight: normal;
+    white-space: nowrap;
+}
+.error-message {
+  display: none;
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+input[type="text"][name="first"]:invalid ~ #prenom-error-message {
+  display: block;
+}
+input[type="text"][name="last"]:invalid ~ #nom-error-message {
+  display: block;
+}
+input[type="email"][name="email"]:invalid ~ #email-error-message {
+  display: block;
+}
+input[type="date"][name="birthdate"]:invalid ~ #birthdate-error-message {
+  display: block;
+}
+input[type="checkbox"][name="conditions"]:invalid ~ #checkbox-error-message {
+  display: block;
 }
 /* custom select styles */
 .custom-select {
