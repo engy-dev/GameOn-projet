@@ -375,21 +375,7 @@ input[data-error]::after {
   font-size: 0.8rem;
   margin-left: 0.5rem;
 }
-input[type="text"][name="first"]:invalid ~ #prenom-error-message {
-  display: block;
-}
-input[type="text"][name="last"]:invalid ~ #nom-error-message {
-  display: block;
-}
-input[type="email"][name="email"]:invalid ~ #email-error-message {
-  display: block;
-}
-input[type="date"][name="birthdate"]:invalid ~ #birthdate-error-message {
-  display: block;
-}
-input[type="checkbox"][name="conditions"]:invalid ~ #checkbox-error-message {
-  display: block;
-}
+
 /* custom select styles */
 .custom-select {
   position: relative;

@@ -35,31 +35,75 @@ function launchModal() {
 }
 
 function validate(event) {
-  let location = document.getElementsByName("location");
-  let location_error = document.getElementById("location-error-message");
+  event.preventDefault();
+  const location = document.getElementsByName("location");
+  const entireForm = document.getElementById("form-contents");
+   const firstName = document.getElementById("first");
+   const lastName = document.getElementById("last");
+   const email = document.getElementById("email");
+   const birthdate = document.getElementById("birthdate");
+   const conditions = document.getElementById("checkbox1");
   let thankYouMessage = document.getElementById("thank-you-message");
   let thankYouMessageHidden = document.getElementById("thank-you-message-hidden");
-  const entireForm = document.getElementById("form-contents");
-  let isAnyChecked = false;
+ 
+   // reset error messages
+   document.getElementById("prenom-error-message").style.display = "none";
+   document.getElementById("nom-error-message").style.display = "none";
+   document.getElementById("email-error-message").style.display = "none";
+   document.getElementById("birthdate-error-message").style.display = "none";
+   document.getElementById("location-error-message").style.display = "none";
+   document.getElementById("checkbox-error-message").style.display = "none";
+ 
+  
+  // check first name
+  if (firstName.value.length < 2) {
+    document.getElementById("prenom-error-message").style.display = "block";
+  }
 
+  // check last name
+  if (lastName.value.length < 2) {
+    document.getElementById("nom-error-message").style.display = "block";
+  }
+
+  // check email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email.value)) {
+    document.getElementById("email-error-message").style.display = "block";
+  }
+
+  // check birthdate
+  if (!birthdate.value) {
+    document.getElementById("birthdate-error-message").style.display = "block";
+  }
+
+  // check location
+  let locationChecked = false;
   for (let i = 0; i < location.length; i++) {
-    if (location[i].checked) {
-      isAnyChecked = true;
+    if (location[i].checked) {locationChecked = true;
       break;
     }
   }
+  if (!locationChecked) {
+    document.getElementById("location-error-message").style.display = "block";
+  }
 
-  if (!isAnyChecked) {
-    event.preventDefault();
-    location_error.style.display = "block";
-  } else {
-    location_error.style.display = "none";
+  // check conditions
+  if (!conditions.checked) {
+    document.getElementById("checkbox-error-message").style.display = "block";
+  }
+
+  // submit the form if all checks pass
+  if (
+    firstName.value.length >= 2 &&
+    lastName.value.length >= 2 &&
+    emailRegex.test(email.value) &&
+    birthdate.value &&
+    locationChecked &&
+    conditions.checked
+  ) {
     entireForm.style.display = "none";
     thankYouMessage.classList.add("visible");
     thankYouMessageHidden.value = "true";
-
-    // Prevent the page from reloading
-    event.preventDefault();
 
     // Add a delay to hide the "Thank you" message
     setTimeout(function () {
@@ -76,5 +120,9 @@ function validate(event) {
     setTimeout(function () {
       entireForm.style.display = "flex";
     }, 4000);
+    setTimeout(function () {
+      document.getElementById("reservation").submit();
+    }, 4000);
   }
-}
+  }
+  
