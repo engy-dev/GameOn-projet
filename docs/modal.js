@@ -6,8 +6,9 @@ function editNav() {
     x.className = "topnav";
   }
 }
-
-
+var divElement = document.querySelector("#myTopnav");
+var elemHeight = divElement.clientHeight;
+document.documentElement.style.setProperty('--top-nav-height', elemHeight + 'px');
 /// DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
