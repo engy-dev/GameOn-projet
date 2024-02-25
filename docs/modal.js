@@ -29,7 +29,12 @@ closeElement.addEventListener('click', () => {
     }, 0);
   }, 500);
 });
-
+// close thank you message 
+const closeButton = document.querySelector("#thank-you-message .close");
+function closeModal() {
+  document.getElementById("reservation").submit();
+}
+closeButton.addEventListener("click", closeModal);
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
@@ -76,6 +81,12 @@ function validate(event) {
   if (!birthdate.value) {
     document.getElementById("birthdate-error-message").style.display = "block";
   }
+  
+// check previous tournaments number
+const quantityField = document.getElementById("quantity");
+const quantityValue = quantityField.value.trim();
+if (quantityValue === "") {
+  document.getElementById("quantity-error-message").style.display = "block";}
 
   // check location
   let locationChecked = false;
@@ -100,30 +111,12 @@ function validate(event) {
     emailRegex.test(email.value) &&
     birthdate.value &&
     locationChecked &&
+    quantityValue !== "" &&
     conditions.checked
   ) {
     entireForm.style.display = "none";
     thankYouMessage.classList.add("visible");
     thankYouMessageHidden.value = "true";
-
-    // Add a delay to hide the "Thank you" message
-    setTimeout(function () {
-      thankYouMessage.classList.remove("visible");
-      thankYouMessageHidden.value = "false";
-      modalbg.classList.add('closing');
-  setTimeout(() => {
-    modalbg.style.display = 'none';
-    setTimeout(() => {
-      modalbg.classList.remove('closing');
-    }, 0);
-  }, 500);
-    }, 2500);
-    setTimeout(function () {
-      entireForm.style.display = "flex";
-    }, 4000);
-    setTimeout(function () {
-      document.getElementById("reservation").submit();
-    }, 4000);
   }
   }
   

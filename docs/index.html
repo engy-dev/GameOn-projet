@@ -51,9 +51,9 @@
           je m'inscris
         </button>
       </div>
-
       <div class="bground">
         <div class="thank-you-message" id="thank-you-message">
+          <span class="close"></span>
           <h1>Merci! Votre réservation a été reçue.</h1>
         </div>
         <div class="content" id="form-contents">
@@ -115,6 +115,7 @@
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <span id="quantity-error-message" class="error-message">Vous devez entrer un numéro.</span>
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
