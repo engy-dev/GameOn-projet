@@ -58,6 +58,7 @@ function validate(event) {
    document.getElementById("email-error-message").style.display = "none";
    document.getElementById("birthdate-error-message").style.display = "none";
    document.getElementById("location-error-message").style.display = "none";
+   document.getElementById("quantity-error-message").style.display = "none";
    document.getElementById("checkbox-error-message").style.display = "none";
  
   
