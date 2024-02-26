@@ -342,12 +342,26 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+.btn-fermer {
+  justify-content: center;
+    max-width: 100%;
+    background: #fe142f;
+    display: block;
+    margin: 0 auto;
+    border-radius: 7px;
+    font-size: 1rem;
+    padding: 12px 35px;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+}
 /* errors and thank you*/
 .thank-you-message {
+  flex-direction: column;
   transition: all 0.5s ease;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -366,7 +380,7 @@ input[data-error]::after {
 }
 .thank-you-message h1 {
   color: white;
-  font-size: 100%;
+  font-size: 170%;
     font-weight: normal;
     white-space: nowrap;
     text-align: center;

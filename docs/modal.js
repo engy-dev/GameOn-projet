@@ -31,14 +31,18 @@ closeElement.addEventListener('click', () => {
 });
 // close thank you message 
 const closeButton = document.querySelector("#thank-you-message .close");
+const fermerButton = document.querySelector("#thank-you-message .btn-fermer");
 function closeModal() {
   document.getElementById("reservation").submit();
 }
 closeButton.addEventListener("click", closeModal);
+fermerButton.addEventListener("click", closeModal);
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
 }
+
 
 function validate(event) {
   event.preventDefault();
@@ -58,7 +62,6 @@ function validate(event) {
    document.getElementById("email-error-message").style.display = "none";
    document.getElementById("birthdate-error-message").style.display = "none";
    document.getElementById("location-error-message").style.display = "none";
-   document.getElementById("quantity-error-message").style.display = "none";
    document.getElementById("checkbox-error-message").style.display = "none";
  
   
