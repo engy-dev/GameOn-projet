@@ -76,9 +76,7 @@ img {
     display: block;
     color: red;
   }
-}
 
-@media screen and (max-width: 768px) {
   .main-navbar {
     flex-direction: column;
   }
@@ -101,6 +99,12 @@ img {
 
 
  @media screen and (max-width: 540px) {
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     color: red;
