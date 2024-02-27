@@ -52,6 +52,7 @@ function validate(event) {
    const lastName = document.getElementById("last");
    const email = document.getElementById("email");
    const birthdate = document.getElementById("birthdate");
+   const quantityField = document.getElementById("quantity");
    const conditions = document.getElementById("checkbox1");
   let thankYouMessage = document.getElementById("thank-you-message");
   let thankYouMessageHidden = document.getElementById("thank-you-message-hidden");
@@ -63,6 +64,7 @@ function validate(event) {
    document.getElementById("birthdate-error-message").style.display = "none";
    document.getElementById("location-error-message").style.display = "none";
    document.getElementById("checkbox-error-message").style.display = "none";
+   document.getElementById("quantity-error-message").style.display = "none";
  
   
   // check first name
@@ -87,7 +89,6 @@ function validate(event) {
   }
   
 // check previous tournaments number
-const quantityField = document.getElementById("quantity");
 const quantityValue = quantityField.value.trim();
 if (quantityValue === "") {
   document.getElementById("quantity-error-message").style.display = "block";}
