@@ -79,11 +79,16 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  .main-navbar {
+    flex-direction: column;
+  }
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
+    color: white;
+    
   }
   .topnav.responsive a {
     float: none;
@@ -547,6 +552,7 @@ footer {
     float: right;
     display: flex;
     align-items: flex-end;
+    flex-direction: row;
   }
   .topnav {
 
