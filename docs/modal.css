@@ -556,10 +556,6 @@ footer {
     float: right;
     display: flex;
     align-items: flex-end;
-    flex-direction: row;
-  }
-  .topnav {
-
   }
   .hero-section {
     display: block;
